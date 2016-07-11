@@ -9,15 +9,24 @@ import ytIframe from 'youtube-iframe';
 
 export default class VideoPlayer extends React.Component {
   componentDidMount() {
-    var player;
-    ytIframe.load(function(youtube) {
-      console.log('loaded');
-      var player = new youtube.Player('youtube', {
+    this.player;
+    ytIframe.load((youtube) => {
+      this.player = new youtube.Player('youtube', {
           height: '390',
 		      width: '640',
-		      videoId: 'M7lc1UVf-VE'
+		      videoId: 'M7lc1UVf-VE',
+          events: {
+            onStateChange: this.playerStateChange
+          }
       });
     });
+  }
+  playerStateChange({ data }) {
+    if (data === 1) {
+      this.props.play();
+    } else if (data === 2) {
+      this.props.pause();
+    }
   }
   render() {
     return (
