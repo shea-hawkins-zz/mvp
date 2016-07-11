@@ -16,7 +16,7 @@
     "react",
     "RXjs",
     "websockets",
-    "redux",
+    "redux"
   ],
   "author": "Shea Hawkins",
   "license": "ISC",

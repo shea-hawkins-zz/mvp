@@ -1,4 +1,5 @@
 var router = require('express').Router();
+var path = require('path');
 
 // Handles API endpoint calls.
 
@@ -6,7 +7,7 @@ var router = require('express').Router();
 // and a call to something like '/pointCloud:id' will stream the pointCloud
 // information
 router.get('/', function(req, res) {
-  res.sendFile(__dirname + '/../client/index.html');
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
 module.exports = router;
