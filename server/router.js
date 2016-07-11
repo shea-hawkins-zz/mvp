@@ -1,13 +1,8 @@
-var router = require('express').Router();
 var path = require('path');
+var roomRoute = require('./resources/room/route')
 
-// Handles API endpoint calls.
-
-// When the router is large enough, graphql will be used for the data lists
-// and a call to something like '/pointCloud:id' will stream the pointCloud
-// information
-router.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/../client/index.html'));
-});
+var router = function(app) {
+  app.use('/room', roomRoute);
+};
 
 module.exports = router;

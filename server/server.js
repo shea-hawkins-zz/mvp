@@ -11,12 +11,17 @@ app.use('/', function (req, res, next) {
   next();
 });
 
-// Send client and client assets.
+// start client
 app.use('/build', express.static('../client/build'));
 
 app.use('/assets', express.static('../client/assets'));
 
-app.use('/', router);
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+// end client
+
+router(app);
 
 app.use('/', function (req, res, next) {
   console.log(req.method + ' request responded at ' + req.path);
