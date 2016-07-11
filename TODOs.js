@@ -16,4 +16,9 @@ Necessary features:
   -- Send queue additions to server.
 -- Video queue changes broadcast to all other clients
   -- Open socket between client and server for 'videoChange' events
--- Visualizer?
+
+
+// Stretch:
+-- Songs in addition to a youtube
+-- Chat
+-- Visualizer
