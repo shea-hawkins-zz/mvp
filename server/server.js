@@ -14,9 +14,7 @@ app.use('/', function (req, res, next) {
 // Send client and client assets.
 app.use('/build', express.static('../client/build'));
 
-app.get('/', function(req, res, next) {
-  res.sendFile(__dirname + '/index.html');
-});
+app.use('/assets', express.static('../client/assets'));
 
 app.use('/', router);
 

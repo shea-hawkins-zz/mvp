@@ -3,10 +3,10 @@ import React from 'react';
 export default () => {
   return (
     <header>
-    <h1>Point Clouds</h1>
+    <h1>Sync</h1>
       <nav>
         <ul>
-          <li>Scans</li>
+          <li>Nav 1</li>
         </ul>
       </nav>
     </header>
