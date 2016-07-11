@@ -1,24 +1,23 @@
 import React from 'react';
 import ytIframe from 'youtube-iframe';
-
+import { connection } from './model';
 // youtube player returns a promise for
 // ever API function.
 
 // youtube player emits events on any
 // API event.
 
-export default class VideoPlayer extends React.Component {
+class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
   }
   componentDidMount() {
-    this.player;
     ytIframe.load((youtube) => {
       this.player = new youtube.Player('youtube', {
           height: '390',
 		      width: '640',
-		      videoId: 'M7lc1UVf-VE',
+		      videoId: this.props.current,
           events: {
             onStateChange: this.playerStateChange
           }
@@ -38,3 +37,5 @@ export default class VideoPlayer extends React.Component {
     );
   }
 };
+
+export default connection(VideoPlayer);

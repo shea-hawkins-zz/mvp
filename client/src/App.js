@@ -6,7 +6,7 @@ export default (props) => {
   return (
     <div>
       <Header />
-      <VideoPlayer currentVideo="https://www.youtube.com/watch?v=" />
+      <VideoPlayer />
     </div>
   );
 };
