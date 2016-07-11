@@ -8,6 +8,10 @@ import ytIframe from 'youtube-iframe';
 // API event.
 
 export default class VideoPlayer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
   componentDidMount() {
     this.player;
     ytIframe.load((youtube) => {
