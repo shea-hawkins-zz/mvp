@@ -1,0 +1,27 @@
+{
+  "name": "sync-server",
+  "version": "1.0.0",
+  "description": "Node server keeping the data from several clients in sync.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "start npm run watch-client && start npm run dev-server && start node-inspector",
+    "watch-client": "cd ../client && npm run watch",
+    "dev-server": "set NODE_ENV=development&& nodemon --ignore dist/ --debug server.js "
+  },
+  "keywords": [
+    "websockets",
+    "RXJS",
+    "synchronized",
+    "computing"
+  ],
+  "author": "Shea Hawkins",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "node-inspector": "^0.12.8",
+    "nodemon": "^1.9.2"
+  }
+}

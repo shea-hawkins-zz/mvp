@@ -1,0 +1,41 @@
+{
+  "name": "sync-client",
+  "version": "1.0.0",
+  "description": "Sync client.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress --colors --watch",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shea-hawkins/2016-06-mvp.git"
+  },
+  "keywords": [
+    "react",
+    "RXjs",
+    "websockets",
+    "redux",
+  ],
+  "author": "Shea Hawkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shea-hawkins/2016-06-mvp/issues"
+  },
+  "homepage": "https://github.com/shea-hawkins/2016-06-mvp#_PRESS-RELEASE",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.13.1",
+    "webpack-livereload-plugin": "^0.8.1"
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
+  }
+}
