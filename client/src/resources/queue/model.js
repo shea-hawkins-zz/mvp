@@ -16,7 +16,7 @@ var actions = {
   },
   changeCurrent: function(state, data) {
     return Object.assign({}, state, {
-      current: data.url
+      current: data
     });
   }
 };
@@ -31,7 +31,7 @@ var mapStateToProps = function(state) {
 var mapDispatchToProps = function(dispatch) {
   return {
     addToQueue: function(url) {
-      dispatch({ type: 'addToQueue', data: { url: url } });
+      dispatch({ type: 'addToQueue', data: { url: url, videoId: 'A8o_fqHSsYI' } });
       // rest call to add to queue here
     },
     changeCurrent: function(item) {

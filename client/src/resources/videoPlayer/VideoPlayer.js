@@ -58,7 +58,8 @@ class VideoPlayer extends React.Component {
       }
 
       if (nextProps.current !== this.props.current) {
-        console.log('Video changing!');
+        console.log('Video changing to', nextProps.current);
+        this.player.loadVideoById(nextProps.current.videoId);
       }
     }
   }
