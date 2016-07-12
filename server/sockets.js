@@ -12,8 +12,10 @@ module.exports = function(server) {
       sockets.emit('play', data);
     });
     socket.on('currentChange', function(data) {
-      console.log(data);
       sockets.emit('currentChange', data);
+    });
+    socket.on('queueUpdate', function(data) {
+      sockets.emit('queueUpdate', data);
     });
   });
 };

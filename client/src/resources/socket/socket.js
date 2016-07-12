@@ -10,17 +10,26 @@ var actions = {
 
   },
   socketCurrentChange: function(state, data) {
-    console.log('this is the data you', data);
     return Object.assign({}, state, {
       current: data
+    });
+  },
+  socketQueueUpdate: function(state, data) {
+    return Object.assign({}, state, {
+      queue: {
+        items: data
+      }
     });
   }
 };
 
 var mapDispatchToSocket = function(dispatch) {
   socket.on('currentChange', function(data) {
-    console.log('currentChange', data);
     dispatch({ type: 'socketCurrentChange', data: data });
+  });
+
+  socket.on('queueUpdate', function(data) {
+    dispatch({ type: 'socketQueueUpdate', data: data })
   });
 };
 
@@ -33,6 +42,9 @@ var subscribeSocketToStore = function(store) {
         socket.emit('currentChange', currentState.current);
       }
 
+      if (prevState.queue.items.length !== currentState.queue.items.length) {
+        socket.emit('queueUpdate', currentState.queue.items);
+      }
       // Sets the prevState to the new state
       prevState = currentState;
     });
