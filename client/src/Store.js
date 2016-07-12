@@ -1,8 +1,9 @@
 import { createStore } from 'redux';
+import { actions as appActions } from './resources/app/model';
 import { actions as videoActions } from './resources/videoPlayer/model';
 
 // Compiles the actions and default state from each of the application components.
-var actions = Object.assign({}, videoActions);
+var actions = Object.assign({}, videoActions, appActions);
 var state = {
   roomId: 1,
   current: 'M7lc1UVf-VE',

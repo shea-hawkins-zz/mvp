@@ -2,14 +2,22 @@ import { connect } from 'react-redux';
 import 'whatwg-fetch';
 
 var actions = {
+  updateRoomState: function(prevState, data) {
+      console.log('data', data);
+      return Object.assign({}, prevState, data);
+  }
 };
 
 var mapDispatchToProps = function(dispatch) {
   return {
     getState: function() {
-      fetch('room/state').then(function(results) {
-        console.log(results);
-      });
+      fetch('room/state')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          dispatch({type: 'updateRoomState', data: json});
+        });
     }
   };
 };
