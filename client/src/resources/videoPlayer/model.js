@@ -1,24 +1,20 @@
 import { connect } from 'react-redux';
 
-
-// videoPlayer state defaults.
-var state = {
-  playing: false,
-  playerState: 'unstarted',
-  current: 'M7lc1UVf-VE'
-};
-
 var actions = {
   videoPlay: function(prevState, data) {
     return Object.assign({}, prevState, {
-      playing: true,
-      playerState: 'playing'
+      player: {
+        playing: true,
+        state: 'playing'
+      }
     });
   },
   videoPause: function(prevState, data) {
-    return Object.assign({}, state, {
-      playing: false,
-      playerState: 'paused'
+    return Object.assign({}, prevState, {
+      player: {
+        playing: false,
+        state: 'paused'
+      }
     });
   }
 };
@@ -34,14 +30,13 @@ var mapDispatchToProps = function(dispatch) {
   };
 };
 
-var mapStateToProps = function(newState) {
+var mapStateToProps = function(state) {
   // This transfers the newState to the component's state declared above.
   return {
-    playing: newState.playing,
-    current: newState.current
+    current: state.current
   };
 };
 
 var connection = connect(mapStateToProps, mapDispatchToProps);
 
-export { actions, state, connection };
+export { actions, connection };
