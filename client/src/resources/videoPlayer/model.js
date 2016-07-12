@@ -6,7 +6,8 @@ var actions = {
     return Object.assign({}, prevState, {
       player: {
         playing: true,
-        state: 'playing'
+        state: 'playing',
+        timestamp: data.timestamp
       }
     });
   },
@@ -14,7 +15,8 @@ var actions = {
     return Object.assign({}, prevState, {
       player: {
         playing: false,
-        state: 'paused'
+        state: 'paused',
+        timestamp: data.timestamp
       }
     });
   }
@@ -33,15 +35,15 @@ var attachListeners = function(dispatch) {
 
 var mapDispatchToProps = function(dispatch) {
   return {
-    play: function() {
-      dispatch({ type: 'videoPlay', data: { timestamp: 11 } });
-      socket.emit('play', { timestamp: 11 } );
-      console.log('play sent at');
+    play: function(timestamp) {
+      dispatch({ type: 'videoPlay', data: { timestamp: timestamp } });
+      socket.emit('play', { timestamp: timestamp } );
+      console.log('play sent at ', timestamp);
     },
-    pause: function() {
-      dispatch({ type: 'videoPause', data: { timestamp: 11 } });
-      socket.emit('pause', { timestamp: 11 } );
-      console.log('pause sent at');
+    pause: function(timestamp) {
+      dispatch({ type: 'videoPause', data: { timestamp: timestamp } });
+      socket.emit('pause', { timestamp: timestamp } );
+      console.log('pause sent at ', timestamp);
     }
   };
 };
@@ -50,7 +52,8 @@ var mapStateToProps = function(state) {
   // This transfers the newState to the component's state declared above.
   return {
     current: state.current,
-    playing: state.player.playing
+    playing: state.player.playing,
+    timestamp: state.player.timestamp
   };
 };
 

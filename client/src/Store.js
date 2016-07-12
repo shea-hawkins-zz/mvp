@@ -12,7 +12,8 @@ var state = {
   type: 'video',
   player: {
     playing: false,
-    state: 'unstarted'
+    state: 'unstarted',
+    timestamp: 0
   }
 };
 
