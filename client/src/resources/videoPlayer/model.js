@@ -35,14 +35,14 @@ var attachListeners = function(dispatch) {
 
 var mapDispatchToProps = function(dispatch) {
   return {
-    play: function(timestamp) {
+    play: function(room, timestamp) {
       dispatch({ type: 'videoPlay', data: { timestamp: timestamp } });
-      socket.emit('play', { timestamp: timestamp } );
+      socket.emit('play', { room: room, data: {timestamp: timestamp} } );
       console.log('play sent at ', timestamp);
     },
-    pause: function(timestamp) {
+    pause: function(room, timestamp) {
       dispatch({ type: 'videoPause', data: { timestamp: timestamp } });
-      socket.emit('pause', { timestamp: timestamp } );
+      socket.emit('pause', { room: room, data: {timestamp: timestamp} } );
       console.log('pause sent at ', timestamp);
     }
   };
@@ -53,7 +53,8 @@ var mapStateToProps = function(state) {
   return {
     current: state.current,
     playing: state.player.playing,
-    timestamp: state.player.timestamp
+    timestamp: state.player.timestamp,
+    room: state.room
   };
 };
 

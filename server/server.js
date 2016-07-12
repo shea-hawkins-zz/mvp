@@ -25,6 +25,7 @@ app.get('/', function(req, res) {
 });
 // end client
 
+// route request
 router(app);
 
 sockets(server);

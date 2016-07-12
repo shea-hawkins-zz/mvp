@@ -24,11 +24,11 @@ Necessary features:
   x- Open socket client to server to recieve 'Play' and 'Pause' events.
   x- Open socket to send 'Play' and 'Pause' events
 -- Video queue
-  -- Videos are added to the queue in order.
-  -- Retrieve queue from server.
-  -- Send queue additions to server.
+  x- Videos are added to the queue in order.
+  x- Retrieve queue from server.
+  x- Send queue additions to server.
 -- Video queue changes broadcast to all other clients
-  -- Open socket between client and server for 'videoChange' events
+  x- Open socket between client and server for 'videoChange' events
 
 
 // Stretch:

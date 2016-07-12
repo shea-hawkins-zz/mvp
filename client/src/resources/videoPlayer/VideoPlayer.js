@@ -28,9 +28,9 @@ class VideoPlayer extends React.Component {
   }
   playerStateChange({ target, data }) {
     if (data === 1) {
-      this.props.play(target.getCurrentTime());
+      this.props.play(this.props.room, target.getCurrentTime());
     } else if (data === 2) {
-      this.props.pause(target.getCurrentTime());
+      this.props.pause(this.props.room, target.getCurrentTime());
     }
   }
   playerReady() {

@@ -8,7 +8,7 @@ import { actions as socketActions, subscribeSocketToStore, mapDispatchToSocket }
 // Compiles the actions and default state from each of the application components.
 var actions = Object.assign({}, videoActions, appActions, queueActions, socketActions);
 var state = {
-  roomId: 1,
+  room: 1,
   current: {
     id: 0,
     videoId: 'M7lc1UVf-VE',
