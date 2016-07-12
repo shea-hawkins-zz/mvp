@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import socket from '../socket/socket';
+import { socket } from '../socket/socket';
 
 var actions = {
   videoPlay: function(prevState, data) {
