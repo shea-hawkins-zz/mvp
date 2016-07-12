@@ -1,8 +1,11 @@
 var path = require('path');
 var express = require('express');
+var http = require('http');
 var router = require('./router');
-var app = express();
+var sockets = require('./sockets');
 
+var app = express();
+var server = http.createServer(app);
 
 // Configuration details
 var port = 3000;
@@ -24,13 +27,19 @@ app.get('/', function(req, res) {
 
 router(app);
 
-sockets(app);
+sockets(server);
 
 app.use('/', function (req, res, next) {
   console.log(req.method + ' request responded at ' + req.path);
   next();
 });
 
-app.listen(port, function() {
-  console.log('App is listening on ' + port);
+
+server.listen(port, function(err) {
+  if (err) {
+    console.log(err);
+  } else {
+    const port = server.address().port;
+    console.log(`Server listening on ${port}`);
+  }
 });

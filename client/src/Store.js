@@ -1,6 +1,8 @@
 import { createStore } from 'redux';
-import { actions as appActions } from './resources/app/model';
+import { actions as appActions, attachListeners as appListeners } from './resources/app/model';
 import { actions as videoActions } from './resources/videoPlayer/model';
+
+
 
 // Compiles the actions and default state from each of the application components.
 var actions = Object.assign({}, videoActions, appActions);
@@ -23,5 +25,7 @@ var reducer = function(prevState = state, action) {
 };
 
 var store = createStore(reducer);
+
+appListeners(store.dispatch);
 
 export default store;

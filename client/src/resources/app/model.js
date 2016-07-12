@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import socket from '../socket/socket';
 import 'whatwg-fetch';
 
 var actions = {
@@ -22,6 +23,14 @@ var mapDispatchToProps = function(dispatch) {
   };
 };
 
+// This function will attach all of the app-level listeners to the socket.
+// it is given access to the dispatch so that events may be dispatched as needed.
+var attachListeners = function(dispatch) {
+  socket.on('currentChange', function(data) {
+    console.log('currentChange', data);
+  });
+};
+
 var mapStateToProps = function(state) {
   // This transfers the newState to the component's state declared above.
   return {
@@ -31,4 +40,4 @@ var mapStateToProps = function(state) {
 
 var connection = connect(mapStateToProps, mapDispatchToProps);
 
-export { actions, connection };
+export { actions, attachListeners, connection };
