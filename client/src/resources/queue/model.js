@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import urlParse from 'url-parse';
+import queryString from 'query-string';
 
 var actions = {
   addToQueue: function(state, data) {
@@ -31,7 +33,8 @@ var mapStateToProps = function(state) {
 var mapDispatchToProps = function(dispatch) {
   return {
     addToQueue: function(url) {
-      dispatch({ type: 'addToQueue', data: { url: url, videoId: 'A8o_fqHSsYI' } });
+      var params = queryString.parse(urlParse(url).query);
+      dispatch({ type: 'addToQueue', data: { url: url, videoId: params.v } });
       // rest call to add to queue here
     },
     changeCurrent: function(item) {
