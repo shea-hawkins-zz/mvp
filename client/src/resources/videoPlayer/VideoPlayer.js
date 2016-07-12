@@ -27,6 +27,7 @@ class VideoPlayer extends React.Component {
     });
   }
   playerStateChange({ target, data }) {
+    console.log(data);
     if (data === 1) {
       this.props.play(this.props.room, target.getCurrentTime());
     } else if (data === 2) {
@@ -65,7 +66,7 @@ class VideoPlayer extends React.Component {
   }
   render() {
     return (
-      <div id="youtube" />
+      <div className="page-content" id="youtube" />
     );
   }
 };

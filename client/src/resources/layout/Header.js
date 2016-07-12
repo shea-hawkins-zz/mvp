@@ -2,13 +2,10 @@ import React from 'react';
 
 export default () => {
   return (
-    <header>
-    <h1>Sync</h1>
-      <nav>
-        <ul>
-          <li>Nav 1</li>
-        </ul>
-      </nav>
+    <header className="mdl-layout__header">
+      <div className="mdl-layout__header-row">
+        <h1 className="mdl-layout-title">Sync</h1>
+      </div>
     </header>
   );
 };

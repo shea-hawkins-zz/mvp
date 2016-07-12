@@ -5,6 +5,6 @@ export default (props) =>  {
     props.changeCurrent(props.item);
   };
   return (
-    <li onClick={onClick}>{props.item.url}</li>
+    <a className="mdl-navigation__link" onClick={onClick}>{props.item.url}</a>
   );
 };

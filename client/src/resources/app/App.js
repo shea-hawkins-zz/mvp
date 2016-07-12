@@ -4,7 +4,6 @@ import VideoPlayer from '../videoPlayer/VideoPlayer';
 import Queue from '../queue/Queue';
 import { connection } from './model';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,10 +12,12 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
         <Header />
-        <VideoPlayer />
         <Queue />
+        <main className="mdl-layout__content">
+          <VideoPlayer />
+        </main>
       </div>
     );
   }
