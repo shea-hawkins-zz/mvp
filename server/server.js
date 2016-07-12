@@ -24,6 +24,8 @@ app.get('/', function(req, res) {
 
 router(app);
 
+sockets(app);
+
 app.use('/', function (req, res, next) {
   console.log(req.method + ' request responded at ' + req.path);
   next();

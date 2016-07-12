@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     props.getState();
-    this.props = props;
+    this.props, = props;
   }
   render() {
     console.log(this.props);
