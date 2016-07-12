@@ -1,11 +1,12 @@
 import { createStore } from 'redux';
 import { actions as appActions } from './resources/app/model';
+import { actions as queueActions } from './resources/queue/model';
 import { actions as videoActions, attachListeners as videoListeners } from './resources/videoPlayer/model';
 
 
 
 // Compiles the actions and default state from each of the application components.
-var actions = Object.assign({}, videoActions, appActions);
+var actions = Object.assign({}, videoActions, appActions, queueActions);
 var state = {
   roomId: 1,
   current: 'M7lc1UVf-VE',
@@ -14,6 +15,9 @@ var state = {
     playing: false,
     state: 'unstarted',
     timestamp: 0
+  },
+  queue: {
+    items: []
   }
 };
 

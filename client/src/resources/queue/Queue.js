@@ -1,6 +1,7 @@
 import React from 'react';
 import QueueItem from './QueueItem';
 import QueueBar from './QueueBar';
+import { connection } from './model';
 
 class Queue extends React.Component {
   constructor(props) {
@@ -11,12 +12,16 @@ class Queue extends React.Component {
     return (
       <div>
         <ul>
-          <QueueItem link="here's a link!" />
+          {
+            this.props.queue.map(function(item) {
+              return (<QueueItem item={item} id={item.id} />)
+            })
+          }
         </ul>
-        <QueueBar />
+        <QueueBar addToQueue={this.props.addToQueue} />
       </div>
     );
   }
 }
 
-export default Queue;
+export default connection(Queue);

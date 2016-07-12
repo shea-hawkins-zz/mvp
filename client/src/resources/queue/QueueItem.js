@@ -2,6 +2,6 @@ import React from 'react';
 
 export default (props) =>  {
   return (
-    <li>{props.link}</li>
+    <li>{props.item.url}</li>
   );
 };
