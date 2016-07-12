@@ -19,16 +19,25 @@ class VideoPlayer extends React.Component {
 		      width: '640',
 		      videoId: this.props.current,
           events: {
-            onStateChange: this.playerStateChange
+            onStateChange: this.playerStateChange.bind(this)
           }
       });
+      window.player = this.player;
     });
   }
   playerStateChange({ data }) {
+    console.log(data);
     if (data === 1) {
       this.props.play();
     } else if (data === 2) {
       this.props.pause();
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.playing) {
+      this.player.playVideo();
+    } else {
+      this.player.pauseVideo();
     }
   }
   render() {

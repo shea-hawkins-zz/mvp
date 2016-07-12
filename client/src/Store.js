@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import { actions as appActions, attachListeners as appListeners } from './resources/app/model';
-import { actions as videoActions } from './resources/videoPlayer/model';
+import { actions as videoActions, attachListeners as videoListeners } from './resources/videoPlayer/model';
 
 
 
@@ -27,5 +27,6 @@ var reducer = function(prevState = state, action) {
 var store = createStore(reducer);
 
 appListeners(store.dispatch);
+videoListeners(store.dispatch);
 
 export default store;
