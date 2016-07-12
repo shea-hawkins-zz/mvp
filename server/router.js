@@ -1,4 +1,3 @@
-var path = require('path');
 var roomRoute = require('./resources/room/route')
 
 var router = function(app) {
