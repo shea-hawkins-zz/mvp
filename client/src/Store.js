@@ -9,7 +9,11 @@ import { actions as videoActions, attachListeners as videoListeners } from './re
 var actions = Object.assign({}, videoActions, appActions, queueActions);
 var state = {
   roomId: 1,
-  current: 'M7lc1UVf-VE',
+  current: {
+    id: 0,
+    videoId: 'M7lc1UVf-VE',
+    url: ''
+  },
   type: 'video',
   player: {
     playing: false,

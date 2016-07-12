@@ -13,8 +13,8 @@ class Queue extends React.Component {
       <div>
         <ul>
           {
-            this.props.queue.map(function(item) {
-              return (<QueueItem item={item} id={item.id} />)
+            this.props.queue.map((item) => {
+              return (<QueueItem item={item} key={item.id} changeCurrent={this.props.changeCurrent} />)
             })
           }
         </ul>

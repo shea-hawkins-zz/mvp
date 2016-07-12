@@ -12,7 +12,6 @@ class App extends React.Component {
     this.props = props;
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         <Header />

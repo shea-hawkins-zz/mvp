@@ -13,6 +13,11 @@ var actions = {
         }
     );
     return newState;
+  },
+  changeCurrent: function(state, data) {
+    return Object.assign({}, state, {
+      current: data.url
+    });
   }
 };
 
@@ -28,6 +33,9 @@ var mapDispatchToProps = function(dispatch) {
     addToQueue: function(url) {
       dispatch({ type: 'addToQueue', data: { url: url } });
       // rest call to add to queue here
+    },
+    changeCurrent: function(item) {
+      dispatch({ type: 'changeCurrent', data: item })
     }
   };
 };

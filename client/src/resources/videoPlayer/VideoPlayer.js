@@ -17,7 +17,7 @@ class VideoPlayer extends React.Component {
       this.player = new youtube.Player('youtube', {
           height: '390',
 		      width: '640',
-		      videoId: this.props.current,
+		      videoId: this.props.current.videoId,
           events: {
             onReady: this.playerReady.bind(this),
             onStateChange: this.playerStateChange.bind(this)
@@ -44,13 +44,21 @@ class VideoPlayer extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.player) {
       // This should be throttled and handled in application socket
+      // At the moment, resyncs the video player to the new timestamp
+      // if it is over threshold.
       if (Math.abs(this.props.timestamp - nextProps.timestamp) > 1) {
         this.player.seekTo(nextProps.timestamp);
       }
+
+      // Syncs video state
       if (nextProps.playing) {
         this.player.playVideo();
       } else {
         this.player.pauseVideo();
+      }
+
+      if (nextProps.current !== this.props.current) {
+        console.log('Video changing!');
       }
     }
   }

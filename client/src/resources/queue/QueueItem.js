@@ -1,7 +1,10 @@
 import React from 'react';
 
 export default (props) =>  {
+  var onClick = function() {
+    props.changeCurrent(props.item);
+  };
   return (
-    <li>{props.item.url}</li>
+    <li onClick={onClick}>{props.item.url}</li>
   );
 };
